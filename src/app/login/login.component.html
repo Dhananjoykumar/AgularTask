@@ -1,0 +1,41 @@
+<br>
+<H2>User Login</H2>
+<br>
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+  <table>
+    <tr> 
+			<td>User Name: </td>
+			<td> 
+				<input type="text" name="username" formControlName="username">
+				<div *ngIf="username.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
+					<div *ngIf="username.errors.required" style="color: red">
+						User name required.
+					</div>  
+					<div *ngIf="username.errors.pattern"  style="color: rgb(53, 17, 2)">
+						User name not valid.
+					</div> 
+				</div>
+			</td>
+		</tr> 
+		<tr> 
+			<td>Password: </td>
+			<td> 
+				<input type="password" formControlName="password" maxlength="8">
+				<div *ngIf="password.errors && isValidFormSubmitted != null && !isValidFormSubmitted" [ngClass] = "'error'"> 
+					<div *ngIf="password.errors.required"  style="color: red">
+						Password required.
+					</div>  
+					<div *ngIf="password.errors.pattern"  style="color: rgb(53, 17, 2)">
+						Password not valid.
+					</div> 
+				</div>		   
+			</td>
+    </tr> 
+    
+    <tr> 	  
+			<td colspan="2">
+				<button>Submit</button>
+			</td>
+		</tr>	
+  </table>
+</form>

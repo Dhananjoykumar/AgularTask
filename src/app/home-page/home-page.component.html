@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <i class="fa fa-align-justify"></i> User Data
+          </div>
+          <div class="card-body table-responsive">
+            <table id = "example" class="table table-responsive-sm table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Trans No</th>
+                  <th>Party</th>
+                  <th>Total Amount</th>
+                  <th>Status</th>
+                  <th>Due Amount</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let data of userDataArr;let i = index">
+                  <!-- | paginate: {itemsPerPage: 5, currentPage:page, id: '1'} -->
+                  <td>{{data.Date}}</td>
+                  <td>{{data.TransNo}}</td>
+                  <td>{{data.Party}}</td>
+                  <td>{{data.TotalAmount}}</td>
+                  <td>{{data.Status}}</td>
+                  <td>{{data.DueAmount}}</td>
+                  <td>
+                    <button type="submit" class="btn btn-info" (click)="onEdit(data.TransID)">Edit</button>
+                    <button type="submit" class="btn btn-danger" (click)="onDelete(data.TransID)">Delete</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
